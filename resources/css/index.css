@@ -15,5 +15,23 @@ body {
     color: #FFFFFF;
     position: fixed;
     bottom: 7%;
-    left: 2%
+    left: 2%;
+}
+
+#tips-legend {
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+#tips-legend.hide {
+    opacity: 0;
+}
+
+#tips-content {
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+#tips-content.hide {
+    opacity: 0;
 }
