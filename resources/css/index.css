@@ -8,6 +8,12 @@ body {
     position: fixed;
     bottom: 0;
     right: 2%;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+#loading-icon.hide {
+    opacity: 0;
 }
 
 #tips {
@@ -18,20 +24,11 @@ body {
     left: 2%;
 }
 
-#tips-legend {
+#tips-legend, #tips-content{
     opacity: 1;
     transition: all 0.5s;
 }
 
-#tips-legend.hide {
-    opacity: 0;
-}
-
-#tips-content {
-    opacity: 1;
-    transition: all 0.5s;
-}
-
-#tips-content.hide {
+#tips-legend.hide, #tips-content.hide {
     opacity: 0;
 }

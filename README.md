@@ -1,4 +1,4 @@
-#wl-loading
+# wl-loading
 https://github.com/imckl/wl 使用的简单的载入画面。
 
 ## 功能

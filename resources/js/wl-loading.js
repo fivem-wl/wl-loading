@@ -16,10 +16,12 @@ ready(function(){
         "我们正在积极开发中, 如果发现bug可以汇报到https://github.com/imckl/wl"
     ];
 
+    let iconEl = document.getElementById("loading-icon");
     let tipsLegendEl = document.getElementById("tips-legend");
     let tipsContentEl = document.getElementById("tips-content");
 
-    let legendAppear = function(){
+    let naturalAppear = function(){
+        iconEl.classList.add("hide");
         tipsLegendEl.classList.add("hide");
 
         setTimeout(function() {
@@ -27,6 +29,7 @@ ready(function(){
         }, 500);
 
         setTimeout(function() {
+            iconEl.classList.remove("hide");
             tipsLegendEl.classList.remove("hide");
         }, 500);
     };
@@ -45,9 +48,8 @@ ready(function(){
         setTimeout(tipsLoop, 7000);
     };
 
-    // make tips's legend appear more naturally
-    legendAppear();
+    // make icon and legend appear more naturally
+    naturalAppear();
     // loop through tips
     tipsLoop();
-
 });
