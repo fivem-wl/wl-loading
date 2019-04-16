@@ -1,0 +1,19 @@
+body {
+    background: #000;
+    font-family: '华文细黑', 'STXihei', 'PingFang TC', '微软雅黑体', 'Microsoft YaHei New', '微软雅黑', 'Microsoft Yahei', '宋体', 'SimSun', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+    font-weight: 100;
+}
+
+#loading-icon {
+    position: fixed;
+    bottom: 0;
+    right: 2%;
+}
+
+#tips {
+    width: 50%;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 7%;
+    left: 2%
+}
