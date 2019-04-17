@@ -9,6 +9,10 @@ function ready(fn) {
 
 ready(function(){
 
+/*
+    Christmas light by Nik from https://codepen.io/nikrowell/pen/xmKjya
+*/
+
     const colors = [
         '#2B5F75','#64363C','#F9BF45','#985F2A','#E2943B','#A35E47','#B5CAA0'
     ];
