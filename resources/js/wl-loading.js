@@ -19,6 +19,7 @@ ready(function(){
     let iconEl = document.getElementById("loading-icon");
     let tipsLegendEl = document.getElementById("tips-legend");
     let tipsContentEl = document.getElementById("tips-content");
+    let previousIndex;
 
     let naturalAppear = function(){
         iconEl.classList.add("hide");
@@ -26,24 +27,32 @@ ready(function(){
 
         setTimeout(function() {
             tipsLegendEl.innerText = "Tips";
-        }, 500);
+        }, 1000);
 
         setTimeout(function() {
             iconEl.classList.remove("hide");
             tipsLegendEl.classList.remove("hide");
-        }, 500);
+        }, 1000);
     };
 
     let tipsLoop = function(){
+        let index = Math.floor(Math.random()*tips.length);
+
+        while (index === previousIndex) {
+            index = Math.floor(Math.random()*tips.length);
+        }
+
+        previousIndex = index;
+
         tipsContentEl.classList.add("hide");
 
         setTimeout(function() {
-            tipsContentEl.innerText = tips[Math.floor(Math.random()*tips.length)];
-        }, 500);
+            tipsContentEl.innerText = tips[index];
+        }, 1000);
 
         setTimeout(function() {
             tipsContentEl.classList.remove("hide");
-        }, 500);
+        }, 1000);
 
         setTimeout(tipsLoop, 7000);
     };
