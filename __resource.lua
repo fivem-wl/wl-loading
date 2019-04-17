@@ -8,6 +8,7 @@ files {
     'resources/css/loading-icon.css',
     -- javascript file
     'resources/js/wl-loading.js',
+    'resources/js/brokeh.js'
 }
 
 loadscreen 'resources/index.html'
