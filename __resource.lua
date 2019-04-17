@@ -8,7 +8,9 @@ files {
     'resources/css/loading-icon.css',
     -- javascript file
     'resources/js/wl-loading.js',
-    'resources/js/brokeh.js'
+    'resources/js/brokeh.js',
+    -- music file
+    'resources/music/gtav-outro.ogg',
 }
 
 loadscreen 'resources/index.html'

@@ -21,5 +21,55 @@
     <h3 id="tips-legend"></h3>
     <div id="tips-content"></div>
 </div>
+<script>
+    // Create the audio tag
+    var soundFile = document.createElement('audio');
+    soundFile.preload = 'auto';
+    soundFile.loop = true;
+
+    // Load the sound file (using a source element for expandability)
+    var src = document.createElement('source');
+    src.src = 'music/gtav-outro.ogg';
+    src.type = 'audio/ogg';
+    soundFile.appendChild(src);
+
+    // Load the audio tag
+    // It auto plays as a fallback
+    soundFile.load();
+    soundFile.volume = 0.3;
+    soundFile.play();
+
+    //Plays the sound
+    function play() {
+        //Set the current time for the audio file to the beginning
+        soundFile.currentTime = 0.01;
+        soundFile.volume = 0.3;
+        //Due to a bug in Firefox, the audio needs to be played after a delay
+        setTimeout(function () { soundFile.play(); }, 1);
+    }
+
+    let fading = false;
+    // for music to fade out
+    function fade() {
+        if (soundFile.volume > 0.01) {
+            soundFile.volume -= 0.05;
+            setTimeout(fade, 200);
+        }
+    }
+
+    // final stage of game loading, fade out music
+    const handlers = {
+        onLogLine(data) {
+            if (fading === false) {
+                fading = true;
+                fade();
+            }
+        }
+    };
+
+    window.addEventListener('message', function (e) {
+        (handlers[e.data.eventName] || function () { })(e.data);
+    });
+</script>
 </body>
 </html>
