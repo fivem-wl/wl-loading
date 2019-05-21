@@ -16,7 +16,7 @@ ready(function(){
         "我们正在积极开发中, 如果发现bug可以汇报到https://github.com/imckl/wl"
     ];
 
-    let iconEl = document.getElementById("loading-icon");
+    let iconEl = document.getElementById("spinner");
     let tipsLegendEl = document.getElementById("tips-legend");
     let tipsContentEl = document.getElementById("tips-content");
     let previousIndex;

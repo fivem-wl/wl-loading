@@ -19,15 +19,15 @@ canvas {
     object-fit: cover;
 }
 
-#loading-icon {
+#spinner {
     position: fixed;
     bottom: 0;
-    right: 2%;
+    right: 4%;
     opacity: 1;
     transition: all 1s;
 }
 
-#loading-icon.hide {
+#spinner.hide{
     opacity: 0;
 }
 
@@ -35,8 +35,8 @@ canvas {
     width: 50%;
     color: #FFFFFF;
     position: fixed;
-    bottom: 8%;
-    left: 2%;
+    bottom: 100px;
+    left: 4%;
 }
 
 #tips-legend, #tips-content{

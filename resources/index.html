@@ -10,16 +10,13 @@
 
 </head>
 <body>
-<div id="loading-icon" class="cssload-wrap">
-    <div class="cssload-circle"></div>
-    <div class="cssload-circle"></div>
-    <div class="cssload-circle"></div>
-    <div class="cssload-circle"></div>
-    <div class="cssload-circle"></div>
+<div id="spinner" class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
 </div>
 <div id="tips">
     <h3 id="tips-legend"></h3>
-    <div id="tips-content"></div>
+    <p id="tips-content"></p>
 </div>
 <script>
     // Create the audio tag
@@ -53,7 +50,7 @@
     function fade() {
         if (soundFile.volume > 0.01) {
             soundFile.volume -= 0.05;
-            setTimeout(fade, 200);
+            setTimeout(fade, 330);
         }
     }
 

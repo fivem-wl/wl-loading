@@ -17,19 +17,10 @@ ready(function(){
         '#2B5F75','#64363C','#F9BF45','#985F2A','#E2943B','#A35E47','#B5CAA0'
     ];
 
-
-    // const colors = [
-    //     '#4a0206','#710006','#bb0d1a','#fa6632','#cf0638','#ef3e4d','#fdbbc1'
-    // ];
-
     const TWO_PI = Math.PI * 2;
 
     function lerp(value, min, max) {
         return min + value * (max - min);
-    }
-
-    function map(value, inMin, inMax, outMin, outMax) {
-        return lerp(normalize(value, inMin, inMax), outMin, outMax);
     }
 
     function normalize(value, min, max) {
@@ -56,12 +47,9 @@ ready(function(){
         return min + Math.random() * (max - min);
     }
 
-    function toRadians(degrees) {
-        return degrees * Math.PI / 180;
-    }
 
     function toRGB(hex) {
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         return result ? [
             parseInt(result[1], 16),
             parseInt(result[2], 16),
@@ -77,7 +65,6 @@ ready(function(){
                         color = '#FFFFFF',
                         alpha = 0.5,
                         softness = 0.1,
-                        twinkle = false
                     } = {}) {
 
             this.graphics = document.createElement('canvas').getContext('2d');
@@ -89,7 +76,7 @@ ready(function(){
 
             this.twinkle = random() > 0.7 ? false : {
                 phase: random(TWO_PI),
-                speed: random(0.002, 0.004)
+                speed: random(0.001, 0.002)
             };
 
             this.render();
@@ -109,7 +96,7 @@ ready(function(){
             gradient.addColorStop(softness, `rgba(${r},${g},${b},${alpha})`);
             gradient.addColorStop(1,        `rgba(${r},${g},${b},${alpha})`);
 
-            this.canvas.width = radius * 2.1
+            this.canvas.width = radius * 2.1;
             this.canvas.height = radius * 2.1;
 
             graphics.translate(radius, radius);
@@ -127,7 +114,6 @@ ready(function(){
             const theta = phase + time * speed;
             const value = normalize(Math.sin(theta), -1, 1);
 
-            this.twinkle.scale = lerp(value, 0.98, 1.02);
             this.twinkle.alpha = lerp(value, 0.1, 1);
         }
 
@@ -177,7 +163,7 @@ ready(function(){
             for (let i = 0; i < count; i++) {
 
                 const light = new Light({
-                    radius: random(200, 400),
+                    radius: random(200, 250),
                     alpha: random(0.01, 0.05),
                     color: random(colors),
                     softness: random(0.25, 0.9)
@@ -233,7 +219,7 @@ ready(function(){
     function reset() {
 
         const { width, height } = canvas;
-        const count = Math.floor(width * 0.1);
+        const count = Math.floor(width * 0.07);
         const theta = random(TWO_PI);
         const amplitude = height * 0.08;
         const cx = width / 2;
@@ -254,7 +240,7 @@ ready(function(){
                 radius: random(25, Math.max(1, 80 * distanceToCenter)),
                 color: random(colors),
                 alpha: random(0.05, 0.6),
-                softness: random(0.02, 0.5)
+                softness: random(0.05, 0.5)
             });
         });
     }
