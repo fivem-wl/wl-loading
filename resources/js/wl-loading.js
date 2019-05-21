@@ -9,11 +9,14 @@ function ready(fn) {
 
 ready(function(){
     const tips = [
-        "你可以使用'/car 车名'来出生载具",
-        "'/tp qms'用于传送至秋名山底, '/tp qmsd'则是山顶",
-        "'/tpmake'可用于创建你自己的传送点",
-        "M键可以使用vMenu",
-        "我们正在积极开发中, 如果发现bug可以汇报到https://github.com/imckl/wl"
+        "[欢迎]服务器正在开发/测试中, 如果有任何玩法建议, 欢迎加入QQ群:49948262并分享您的建议 :)",
+        "[开发中]赛车系统开发中, 敬请期待",
+        "[提醒]你可以使用'/car 车名'来出生载具, 例如'/car infernus'",
+        "[提醒]'/tp qms'用于传送至秋名山底, '/tp qmsd'则是山顶",
+        "[提醒]'/tpmake'可用于创建属于你的传送点",
+        "[提醒]按M键使用玩家菜单",
+        "[测试中]地图上的骷髅标点可以做警匪PvE任务",
+        "[测试中]警车上按住E, 可以触发类似GTA IV的警察任务"
     ];
 
     let iconEl = document.getElementById("spinner");
