@@ -21,8 +21,8 @@ canvas {
 
 #spinner {
     position: fixed;
-    bottom: 0;
-    right: 4%;
+    bottom: 50px;
+    right: 50px;
     opacity: 1;
     transition: all 1s;
 }
@@ -35,8 +35,8 @@ canvas {
     width: 50%;
     color: #FFFFFF;
     position: fixed;
-    bottom: 100px;
-    left: 4%;
+    bottom: 26px;
+    left: 26px;
 }
 
 #tips-legend, #tips-content{

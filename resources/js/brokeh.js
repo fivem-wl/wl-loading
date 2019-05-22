@@ -14,7 +14,7 @@ ready(function(){
 */
 
     const colors = [
-        '#2B5F75','#64363C','#F9BF45','#985F2A','#E2943B','#A35E47','#B5CAA0'
+        '#FF8C00', '#D98E48','#EBBF83','#9932CC', '#6495ED', '#FFFFFF'
     ];
 
     const TWO_PI = Math.PI * 2;
@@ -76,7 +76,7 @@ ready(function(){
 
             this.twinkle = random() > 0.7 ? false : {
                 phase: random(TWO_PI),
-                speed: random(0.001, 0.002)
+                speed: random(0.0001, 0.001)
             };
 
             this.render();
@@ -219,7 +219,7 @@ ready(function(){
     function reset() {
 
         const { width, height } = canvas;
-        const count = Math.floor(width * 0.07);
+        const count = Math.floor(width * 0.02);
         const theta = random(TWO_PI);
         const amplitude = height * 0.08;
         const cx = width / 2;
@@ -237,10 +237,10 @@ ready(function(){
 
             return new Light({
                 position: {x, y},
-                radius: random(25, Math.max(1, 80 * distanceToCenter)),
+                radius: random(100, Math.max(1, 80 * distanceToCenter)),
                 color: random(colors),
-                alpha: random(0.05, 0.6),
-                softness: random(0.05, 0.5)
+                alpha: random(0.1, 0.5),
+                softness: random(0.1, 0.5)
             });
         });
     }
