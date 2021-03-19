@@ -1,3 +1,18 @@
+let soundFile = document.createElement('audio');
+soundFile.preload = 'auto';
+soundFile.loop = true;
+
+let src = document.createElement('source');
+src.src = './music/gtav-outro.ogg';
+src.type = 'audio/ogg';
+soundFile.appendChild(src);
+
+// Load the audio tag
+// It auto plays as a fallback
+soundFile.load();
+soundFile.volume = 0.3;
+soundFile.play();
+
 // Vanilla JS dom ready
 function ready(fn) {
     if (document.readyState === "complete" || document.readyState !== "loading") {
@@ -9,8 +24,8 @@ function ready(fn) {
 
 ready(function () {
     const tips = [
-        "[欢迎]服务器正在开发/测试中, 如果有任何玩法建议, 欢迎联系imckl@outlook.com",
-        // "[开发中]赛车系统开发中, 敬请期待",
+        "[开发中]服务器正在开发中, 如果有任何玩法建议, 欢迎联系imckl@outlook.com",
+        "[开发中]赛车系统开发中, 敬请期待, 催进度请联系Her0mAn",
         // "[提醒]你可以使用'/car 车名'来出生载具, 例如'/car infernus'",
         // "[提醒]'/tp qms'用于传送至秋名山底, '/tp qmsd'则是山顶",
         // "[提醒]'/tpmake'可用于创建属于你的传送点",
@@ -21,10 +36,8 @@ ready(function () {
 
     const handlers = {
         // final stage of game loading, fade out music
-        loadProgress(data) {
-            if (data.loadFraction * 100 >= 90) {
-                fade();
-            }
+        endInitFunction() {
+            fade();
         }
     };
 
@@ -32,15 +45,6 @@ ready(function () {
     let tipsLegendEl = document.getElementById("tips-legend");
     let tipsContentEl = document.getElementById("tips-content");
     let previousIndex;
-
-    let soundFile = document.createElement('audio');
-    soundFile.preload = 'auto';
-    soundFile.loop = true;
-
-    let src = document.createElement('source');
-    src.src = 'music/gtav-outro.ogg';
-    src.type = 'audio/ogg';
-    soundFile.appendChild(src);
 
     // make icon and legend appear more naturally
     let naturalAppear = function () {
@@ -76,17 +80,12 @@ ready(function () {
     let fade = function () {
         if (soundFile.volume > 0.01) {
             soundFile.volume -= 0.05;
-            setTimeout(fade, 500);
+            setTimeout(fade, 330);
         }
     }
 
     naturalAppear();
     tipsLoop();
-    // Load the audio tag
-    // It auto plays as a fallback
-    soundFile.load();
-    soundFile.volume = 0.3;
-    soundFile.play();
 
     window.addEventListener('message', function (e) {
         (handlers[e.data.eventName] || function () { })(e.data);
