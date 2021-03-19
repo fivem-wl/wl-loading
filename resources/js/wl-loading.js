@@ -1,18 +1,3 @@
-let soundFile = document.createElement('audio');
-soundFile.preload = 'auto';
-soundFile.loop = true;
-
-let src = document.createElement('source');
-src.src = 'music/gtav-outro.ogg';
-src.type = 'audio/ogg';
-soundFile.appendChild(src);
-
-// Load the audio tag
-// It auto plays as a fallback
-soundFile.load();
-soundFile.volume = 0.3;
-soundFile.play();
-
 // Vanilla JS dom ready
 function ready(fn) {
     if (document.readyState === "complete" || document.readyState !== "loading") {
@@ -36,8 +21,10 @@ ready(function () {
 
     const handlers = {
         // final stage of game loading, fade out music
-        endInitFunction() {
-            fade();
+        loadProgress(data) {
+            if (data.loadFraction * 100 >= 90) {
+                setTimeout(fade, 2000);
+            }
         }
     };
 
@@ -45,6 +32,24 @@ ready(function () {
     let tipsLegendEl = document.getElementById("tips-legend");
     let tipsContentEl = document.getElementById("tips-content");
     let previousIndex;
+
+    let soundFile = document.createElement('audio');
+    soundFile.preload = 'auto';
+    soundFile.loop = true;
+
+    let src = document.createElement('source');
+    src.src = 'music/gtav-outro.ogg';
+    src.type = 'audio/ogg';
+    soundFile.appendChild(src);
+
+    //Plays the sound
+    let playSound = function () {
+        //Set the current time for the audio file to the beginning
+        soundFile.currentTime = 0.01;
+        soundFile.volume = 0.3;
+        //Due to a bug in Firefox, the audio needs to be played after a delay
+        setTimeout(function () { soundFile.play(); }, 1);
+    }
 
     // make icon and legend appear more naturally
     let naturalAppear = function () {
@@ -84,6 +89,8 @@ ready(function () {
         }
     }
 
+    soundFile.load();
+    playSound();
     naturalAppear();
     tipsLoop();
 
