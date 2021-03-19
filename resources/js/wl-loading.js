@@ -3,7 +3,7 @@ soundFile.preload = 'auto';
 soundFile.loop = true;
 
 let src = document.createElement('source');
-src.src = './music/gtav-outro.ogg';
+src.src = 'music/gtav-outro.ogg';
 src.type = 'audio/ogg';
 soundFile.appendChild(src);
 
