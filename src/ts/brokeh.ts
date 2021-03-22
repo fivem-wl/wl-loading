@@ -1,20 +1,20 @@
 // Vanilla JS dom ready
 function ready(fn) {
-    if (document.readyState === "complete"  || document.readyState !== "loading"){
+    if (document.readyState === "complete" || document.readyState !== "loading") {
         fn();
     } else {
         document.addEventListener("DOMContentLoaded", fn);
     }
 }
 
-ready(function(){
+ready(function () {
 
-/*
-    Christmas light by Nik from https://codepen.io/nikrowell/pen/xmKjya
-*/
+    /*
+        Christmas light by Nik from https://codepen.io/nikrowell/pen/xmKjya
+    */
 
     const colors = [
-        '#FF8C00', '#D98E48','#EBBF83','#9932CC', '#6495ED', '#FFFFFF'
+        '#FF8C00', '#D98E48', '#EBBF83', '#9932CC', '#6495ED', '#FFFFFF'
     ];
 
     const TWO_PI = Math.PI * 2;
@@ -31,19 +31,20 @@ ready(function(){
         return [...Array(size)].map((undef, i) => fn(i));
     }
 
-    function random(min, max) {
-
-        if(arguments.length === 0) {
+    function random(min?: any, max?: number) {
+        if (arguments.length === 0) {
             return Math.random();
         }
-
-        if(Array.isArray(min)) {
-            return min[ Math.floor(Math.random() * min.length) ];
+        if (Array.isArray(min)) {
+            return min[Math.floor(Math.random() * min.length)];
         }
-
-        if(typeof min == 'undefined') min = 1;
-        if(typeof max == 'undefined') max = min || 1, min = 0;
-
+        if (min === undefined) {
+            min = 1;
+        }
+        if (max == undefined) {
+            max = min || 1;
+            min = 0;
+        }
         return min + Math.random() * (max - min);
     }
 
@@ -59,7 +60,7 @@ ready(function(){
 
     class Light {
         graphics: CanvasRenderingContext2D;
-        position: object;
+        position: any;
         radius: number;
         color: string;
         alpha: number;
@@ -84,7 +85,7 @@ ready(function(){
             this.twinkle = random() > 0.7 ? false : {
                 phase: random(TWO_PI),
                 speed: random(0.0001, 0.001),
-                alpha: 0;
+                alpha: 0
             };
 
             this.render();
@@ -96,13 +97,13 @@ ready(function(){
 
         render() {
 
-            const { graphics, radius, color, alpha, softness } = this;
-            const [ r, g, b ] = toRGB(color);
+            const {graphics, radius, color, alpha, softness} = this;
+            const [r, g, b] = toRGB(color);
             const gradient = graphics.createRadialGradient(0, 0, radius, 0, 0, 0);
 
-            gradient.addColorStop(0,        `rgba(${r},${g},${b},0)`);
+            gradient.addColorStop(0, `rgba(${r},${g},${b},0)`);
             gradient.addColorStop(softness, `rgba(${r},${g},${b},${alpha})`);
-            gradient.addColorStop(1,        `rgba(${r},${g},${b},${alpha})`);
+            gradient.addColorStop(1, `rgba(${r},${g},${b},${alpha})`);
 
             this.canvas.width = radius * 2.1;
             this.canvas.height = radius * 2.1;
@@ -116,9 +117,9 @@ ready(function(){
 
         update(time) {
 
-            if ( ! this.twinkle) return;
+            if (!this.twinkle) return;
 
-            const { phase, speed } = this.twinkle;
+            const {phase, speed} = this.twinkle;
             const theta = phase + time * speed;
             const value = normalize(Math.sin(theta), -1, 1);
 
@@ -131,7 +132,7 @@ ready(function(){
             context.translate(this.position.x, this.position.y);
 
             if (this.twinkle) {
-                const { scale, alpha } = this.twinkle;
+                const {scale, alpha} = this.twinkle;
                 context.scale(scale, scale);
                 context.globalAlpha = alpha;
             }
@@ -202,7 +203,7 @@ ready(function(){
 
     function draw(time) {
 
-        const { width, height } = canvas;
+        const {width, height} = canvas;
 
         context.save();
         context.clearRect(0, 0, width, height);
@@ -228,7 +229,7 @@ ready(function(){
 
     function reset() {
 
-        const { width, height } = canvas;
+        const {width, height} = canvas;
         const count = Math.floor(width * 0.02);
         const theta = random(TWO_PI);
         const amplitude = height * 0.08;
