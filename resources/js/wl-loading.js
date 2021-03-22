@@ -1,3 +1,5 @@
+require('@citizenfx/client');
+
 // Vanilla JS dom ready
 function ready(fn) {
     if (document.readyState === "complete" || document.readyState !== "loading") {
@@ -30,8 +32,8 @@ ready(function () {
         }
     };
 
-    const locale = navigator.language.toLocaleLowerCase();
-
+    const locale = GetCurrentLanguage();
+    
     let iconEl = document.getElementById("spinner");
     let tipsLegendEl = document.getElementById("tips-legend");
     let tipsContentEl = document.getElementById("tips-content");
@@ -98,7 +100,7 @@ ready(function () {
 
     playMusic();
     naturalAppear();
-    if (locale.startsWith("zh")) {
+    if (locale === 9 || locale === 12) {
         tipsLoop(tipsCN);
     } else {
         tipsLoop(tipsEN);
