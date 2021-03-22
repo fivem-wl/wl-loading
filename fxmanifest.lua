@@ -8,15 +8,15 @@ url 'https://github.com/fivem-wl/wl-loading'
 
 files {
     -- index html file
-    'resources/index.html',
+    'src/index.html',
     -- stylesheet
-    'resources/css/index.css',
-    'resources/css/loading-icon.css',
+    'src/css/index.css',
+    'src/css/loading-icon.css',
     -- javascript file
-    'resources/js/wl-loading.js',
-    'resources/js/brokeh.js',
+    'src/js/wl-loading.js',
+    'src/js/brokeh.js',
     -- music file
-    'resources/music/gtav-outro.ogg',
+    'src/music/gtav-outro.ogg',
 }
 
-loadscreen 'resources/index.html'
+loadscreen 'src/index.html'

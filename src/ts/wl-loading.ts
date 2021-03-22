@@ -1,4 +1,4 @@
-require('@citizenfx/client');
+import {Game} from 'fivem-js'
 
 // Vanilla JS dom ready
 function ready(fn) {
@@ -32,7 +32,7 @@ ready(function () {
         }
     };
 
-    const locale = GetCurrentLanguage();
+    const locale = Game.Language;
     
     let iconEl = document.getElementById("spinner");
     let tipsLegendEl = document.getElementById("tips-legend");

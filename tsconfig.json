@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "allowJs": true,
+    "outDir": "./src/js"
+  },
+  "types": [
+    "@citizenfx/client",
+    "@types/node"
+  ],
+  "moduleResolution": "node",
+  "exclude": [
+    "node_modules"
+  ],
+  "include": ["./src/ts/*"]
+}

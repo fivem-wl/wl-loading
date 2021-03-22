@@ -58,10 +58,17 @@ ready(function(){
     }
 
     class Light {
+        graphics: CanvasRenderingContext2D;
+        position: object;
+        radius: number;
+        color: string;
+        alpha: number;
+        softness: number;
+        twinkle: any;
 
         constructor({
                         position = {x: 0, y: 0},
-                        radius,
+                        radius = 0,
                         color = '#FFFFFF',
                         alpha = 0.5,
                         softness = 0.1,
@@ -76,7 +83,8 @@ ready(function(){
 
             this.twinkle = random() > 0.7 ? false : {
                 phase: random(TWO_PI),
-                speed: random(0.0001, 0.001)
+                speed: random(0.0001, 0.001),
+                alpha: 0;
             };
 
             this.render();
@@ -134,6 +142,8 @@ ready(function(){
     }
 
     class Background {
+        baseColor: string;
+        graphics: CanvasRenderingContext2D;
 
         constructor({baseColor = '#0C0000'} = {}) {
             this.baseColor = baseColor;
@@ -209,7 +219,7 @@ ready(function(){
         requestAnimationFrame(draw);
     }
 
-    function resize(event) {
+    function resize() {
         const width = window.innerWidth;
         const height = window.innerHeight;
         canvas.width = width;
