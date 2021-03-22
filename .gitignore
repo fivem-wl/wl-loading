@@ -1,3 +1,4 @@
 # WebStorm files
 /.idea/
 /node_modules/
+/src/js/
