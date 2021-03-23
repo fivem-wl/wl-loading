@@ -1,7 +1,7 @@
-import {Game} from 'fivem-js'
+import {getUserLocale}from 'get-user-locale'
 
 // Returns an Array of tips strings according to game UI language
-export function getTipsByUiLanguage() {
+export function getTipsByLocale() {
     const tipsEN = [
         "Develop|The server is undergoing development, if you have any suggestions, feel free to contact imckl@outlook.com",
         "Develop|Racing system is undergoing development, please look forward to it. @Her0mAn if you want it done faster :)",
@@ -14,13 +14,9 @@ export function getTipsByUiLanguage() {
         "提醒|按M键使用玩家菜单"
     ];
 
-    switch (Game.Language) {
-        case 0: {
-            return tipsEN;
-        }
-
-        default: {
-            return tipsCN;
-        }
+    if (getUserLocale().toLocaleLowerCase().startsWith("zh")) {
+        return tipsCN;
     }
+
+    return tipsEN;
 }

@@ -7,7 +7,7 @@
         "utils/*"
       ]
     },
-    "outDir": "./src/js",
+    "outDir": "./built/tsc",
     "noImplicitAny": false,
     "module": "es6",
     "target": "es6",
@@ -16,12 +16,11 @@
       "dom"
     ],
     "types": [
-      "@citizenfx/client",
       "@types/node"
     ],
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "include": [
     "**/ts/*"

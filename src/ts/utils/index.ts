@@ -1,3 +1,3 @@
-export * from './vanillaJsUtils.js'
-export * from './tipsTextsUtils.js'
-export * from './brokehUtils.js'
+export * from './vanillaJsUtils'
+export * from './tipsTextsUtils'
+export * from './brokehUtils'

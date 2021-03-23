@@ -13,8 +13,7 @@ files {
     'src/css/index.css',
     'src/css/loading-icon.css',
     -- javascript file
-    'src/js/wl-loading.js',
-    'src/js/brokeh.js',
+    'src/js/loadingScreen.js',
     -- music file
     'src/music/gtav-outro.ogg',
 }

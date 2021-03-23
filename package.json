@@ -2,13 +2,12 @@
   "name": "wl-loading",
   "version": "0.8.0",
   "description": "Simple loading screen for future-world",
-  "main": "./src/js/loadingScreen.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "tsc",
     "format": "prettier --write \"src/ts/*.ts\"",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "watch": "webpack --mode development --watch true",
+    "buildLoadingScreen": "webpack --mode development --config=\"./webpack.config.js\""
   },
   "repository": {
     "type": "git",
@@ -23,18 +22,17 @@
     "url": "https://github.com/fivem-wl/wl-loading/issues"
   },
   "homepage": "https://github.com/fivem-wl/wl-loading#readme",
-  "dependencies": {
-    "@citizenfx/client": "^2.0.3619-1",
-    "fivem-js": "^1.5.2"
-  },
   "devDependencies": {
     "@types/node": "^14.14.31",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "eslint": "^7.20.0",
     "file-loader": "^6.2.0",
+    "get-user-locale": "^1.4.0",
     "prettier": "^2.2.1",
-    "ts-loader": "^8.0.17",
-    "typescript": "^4.1.5"
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "webpack": "^5.27.2",
+    "webpack-cli": "^4.5.0"
   }
 }

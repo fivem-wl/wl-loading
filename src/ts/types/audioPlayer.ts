@@ -1,4 +1,4 @@
-import {MusicFileTypes} from './musicFileTypes.js'
+import {MusicFileTypes} from './musicFileTypes'
 
 export class AudioPlayer {
     private readonly audioEl: HTMLAudioElement;
@@ -11,6 +11,7 @@ export class AudioPlayer {
         this.audioEl.currentTime = 0.01;
         this.audioEl.volume = 0.3;
 
+        this.sourceEl = document.createElement('source')
         this.sourceEl.src = url;
         this.sourceEl.type = fileType.valueOf();
 

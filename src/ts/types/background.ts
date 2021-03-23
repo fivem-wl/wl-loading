@@ -1,6 +1,6 @@
 import {random} from '../utils'
-import {Light} from './light.js'
-import {COLORS} from './brokehConstants.js'
+import {Light} from './light'
+import {COLORS} from './brokehConstants'
 
 export class Background {
     baseColor: string;

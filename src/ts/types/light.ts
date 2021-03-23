@@ -1,5 +1,5 @@
 import {lerp, normalize, random, toRGB} from "../utils";
-import {TWO_PI} from './brokehConstants.js'
+import {TWO_PI} from './brokehConstants'
 
 export class Light {
     graphics: CanvasRenderingContext2D;
